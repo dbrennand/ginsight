@@ -13,8 +13,7 @@ class g_insight(object):
     def send_request(self, params: dict):
         """Makes the request to the Google Insight API.
         Params:
-            _url: The parameters passed to the main endpoint url.
-            params: Request params for API request.
+            params: dict: Request params for API request.
         Returns:
             resp: The API JSON response.
             error: Occurs if request fails. resp.raise_for_status() is invoked.
@@ -36,12 +35,11 @@ class g_insight(object):
         """Check website function.
         Params:
             More Info [1]: https://developers.google.com/speed/docs/insights/v5/reference/pagespeedapi/runpagespeed#parameters
-            Type: str
-                url: string: The URL to query.
-                catagory: string: "A Lighthouse category to run; if none are given, only Performance category will be run.[1]"
-                strategy: string: Default is Desktop per API. Can be either str: desktop or mobile.
-                utm_campaign: string: Campaign name for analytics.
-                utm_source: string: Campaign source for analytics. 
+            url: string: The URL to query.
+            catagory: string: "A Lighthouse category to run; if none are given, only Performance category will be run.[1]"
+            strategy: string: Default is Desktop per API. Can be either str: desktop or mobile.
+            utm_campaign: string: Campaign name for analytics.
+            utm_source: string: Campaign source for analytics. 
         Returns:
             resp.json() from send_request()
         """
