@@ -9,6 +9,7 @@ A tiny wrapper for Google's PageSpeed Insight API.
     4. utm_source: Defaults to Nonetype if not provided.
 
 ## Dependencies
+* Python 3
 * Requests
 ```
 pipenv install
