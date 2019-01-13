@@ -17,11 +17,12 @@ pipenv install
 
 ## Example Usage
 ```python
-    insight = g_insight("Insert Key Here.")
-    # Providing the only required parameter.
-    print(insight.check_website("https://google.com"))
-    # Using other params.
-    print(insight.check_website("https://google.com", catagory="performance", strategy="mobile", utm_campaign="g_insight", utm_source="g_insight"))
+from g_insight import g_insight
+insight = g_insight("Insert Key Here.")
+# Providing the only required parameter.
+print(insight.check_website("https://google.com"))
+# Using other params.
+print(insight.check_website("https://google.com", catagory="performance", strategy="mobile", utm_campaign="g_insight", utm_source="g_insight"))
 ```
 
 ## Authors -- Contributors
