@@ -26,7 +26,7 @@ print(insight.check_website("https://google.com", catagory="performance", strate
 ```
 
 ## Authors -- Contributors
-* **Daniel Brennand** - *Author* - [Dextroz](https://github.com/Dextroz)
+* **Dextroz** - *Author* - [Dextroz](https://github.com/Dextroz)
 
 ## License
 
