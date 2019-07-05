@@ -2,6 +2,7 @@
 A tiny wrapper for Google's PageSpeed Insight API.
 
 ## Updates
+* 05/09/19: Minor code changes, updated dependencies.
 * 1/01/19: Added support for all parameters to API endpoint. These include:
     1. catagory: Defaults to Nonetype if not provided.
     2. strategy: Defaults to string "Desktop".

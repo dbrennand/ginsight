@@ -1,38 +1,34 @@
 try:
-    import requests
+    from requests import get
 except ImportError as err:
     print(f"Failed to import required modules {err}")
 
 
 class g_insight(object):
 
-    def __init__(self, api_key):
-        self.api_key = f"{api_key}"
-        self.endpoint = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed"
+    def __init__(self, API_KEY):
+        self.API_KEY = API_KEY
+        self.ENDPOINT = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed"
+        self.VERSION = "0.0.1"
 
     def send_request(self, params: dict):
-        """Makes the request to the Google Insight API.
+        """
+        Makes the request to the Google Insight API.
         Params:
             params: dict: Request params for API request.
         Returns:
             resp: The API JSON response.
             error: Occurs if request fails. resp.raise_for_status() is invoked.
         """
-        try:
-            resp = requests.get(self.endpoint, params=params)
-            if ((resp.status_code) == (requests.codes.ok)):
-                return resp.json()
-            else:
-                resp.raise_for_status()
-        except requests.exceptions.TooManyRedirects:
-            print("Request exceeded the acceptable number of redirects.")
-        except requests.exceptions.Timeout:
-            print("Request timed out.")
-        except requests.exceptions.HTTPError as err:
-            print(f"The following HTTPError occured {err}")
+        resp = get(self.ENDPOINT, params=params)
+        if resp.status_code == 200:
+            return resp.json()
+        else:
+            resp.raise_for_status()
 
     def check_website(self, url: str, catagory: str = None, strategy: str = "desktop", utm_campaign: str = None, utm_source: str = None):
-        """Check website function.
+        """
+        Check website function.
         Params:
             More Info [1]: https://developers.google.com/speed/docs/insights/v5/reference/pagespeedapi/runpagespeed#parameters
             url: string: The URL to query.
@@ -49,9 +45,9 @@ class g_insight(object):
         # Valid Strategy options.
         strategy_options = ["desktop", "mobile"]
         # Init params dict.
-        params = {}
+        params = dict()
         # Add key param.
-        params["key"] = self.api_key
+        params["key"] = self.API_KEY
         # Add url param.
         params["url"] = url
         # If not none and in acceptable catagory_options, add to params dict.
@@ -71,7 +67,7 @@ class g_insight(object):
 
 # Example Usage.
 if __name__ == "__main__":
-    insight = g_insight("Insert Key Here.")
+    insight = g_insight("Insert API Key Here.")
     # Providing the only required parameter.
     print(insight.check_website("https://google.com"))
     # Using other params.
