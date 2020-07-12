@@ -27,7 +27,7 @@ print(insight.check_website("https://google.com", catagory="performance", strate
 ```
 
 ## Authors -- Contributors
-* **Dextroz** - *Author* - [Dextroz](https://github.com/Dextroz)
+* **dbrennand** - *Author* - [dbrennand](https://github.com/dbrennand)
 
 ## License
 
